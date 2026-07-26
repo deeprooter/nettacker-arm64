@@ -77,19 +77,23 @@ Navigate into the extracted folder. The compilation includes pre-configured ARM6
 2. **Review your configuration (`docker-compose.yml`):**
    A standard template configuration looks like this:
    ```yaml
-   version: '3.8'
+  services:
+  nettacker:
+    image: owasp/nettacker:local
+    container_name: nettacker-api
+    restart: unless-stopped
+    tty: true
+    stdin_open: true
+    ports:
+      - "5001:5000"
+    volumes:
+      - /home/hacker/Nettacker_Reports:/usr/src/owasp-nettacker/.data
+    command: [
+      "--start-api", 
+      "--api-host", "0.0.0.0", 
+      "--api-access-log", "/usr/src/owasp-nettacker/.data/nettacker.log"
+    ]
 
-   services:
-     nettacker:
-       image: deeprooter/nettacker-arm64:latest
-       container_name: nettacker_app
-       restart: always
-       ports:
-         - "8000:8000"
-       volumes:
-         - ./data:/app/data
-       environment:
-         - ENVIRONMENT=production
    ```
 
 3. **Start the containers:**
