@@ -50,46 +50,5 @@ tar -xzvf nettacker-arm64.tar.gz
 
 ---
 
-## Step 4: Deploy Using Docker Compose (ARM64 Architecture)
-
-Navigate into the extracted folder. The compilation includes pre-configured ARM64 Docker images optimized for architecture consistency.
-
-1. **Change directory:**
-   ```bash
-   cd nettacker-arm64
-   ```
-
-2. **Review your configuration (`docker-compose.yml`):**
-   A standard template configuration looks like this:
-   ```yaml
-  services:
-  nettacker:
-    image: owasp/nettacker:local
-    container_name: nettacker-api
-    restart: unless-stopped
-    tty: true
-    stdin_open: true
-    ports:
-      - "5001:5000"
-    volumes:
-      - /home/hacker/Nettacker_Reports:/usr/src/owasp-nettacker/.data
-    command: [
-      "--start-api", 
-      "--api-host", "0.0.0.0", 
-      "--api-access-log", "/usr/src/owasp-nettacker/.data/nettacker.log"
-    ]
-
-   ```
-
-3. **Start the containers:**
-   Run Docker Compose in detached mode to start the application in the background:
-   ```bash
-   docker compose up -d
-   ```
-
-4. **Verify execution:**
-   Ensure the container is successfully running on your ARM64 host:
-   ```bash
-   docker compose ps
-   ```
+## Step 4:  See README.md for next steps.
 
