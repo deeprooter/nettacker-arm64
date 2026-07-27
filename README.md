@@ -66,7 +66,7 @@ sudo docker compose up -d
 
 ---
 
-## 🖥️ Accessing the Interface
+## Accessing the Interface
 
 ### Step 1: Retrieve Your Security Token
 Because the API server generates a unique, automated access key on its initial boot, fetch the key directly from the active runtime logs:
@@ -75,21 +75,29 @@ sudo docker logs nettacker-api
 ```
 Look through the boot tracking text lines to find your `API Access Key`.
 
+<img width="2096" height="1619" alt="nettracker-API" src="https://github.com/user-attachments/assets/d0225f8a-8e0e-4097-8bc7-2738b32806b3" />
+
+
 ### Step 2: Open the Web UI Dashboard
-Open your web browser of choice on your local area network and navigate to:
+<img width="3634" height="1823" alt="homepage-nettracker-UI" src="https://github.com/user-attachments/assets/6c21eedb-3709-4835-bbea-7ca44df3eeac" />
+
+**Open your web browser of choice on your local area network and navigate to:**
+
 ```text
 https://<YOUR_RASPBERPY_PI_IP>:5001
 ```
+
 *Note: If navigating directly on the Pi screen itself, use `https://localhost:5001`. Paste the retrieved access token into the login box to initialize the engine.*
 
 ---
 
-## 📁 Accessing Your Scan Reports
+## Accessing Your Scan Reports
 - **Real-Time Operational Log:** Access via your Pi at `/home/<usr>/Nettacker_Reports/nettacker.log`.
 - **Relational Databases:** The scan records are stored locally inside the SQLite format engine at `/home/<usr>/Nettacker_Reports/nettacker.db`.
 - **HTML Scan Files:** While running in Web API mode, files are generated dynamically upon demand. Use the **Results/Search** panel inside the browser GUI to view graphs or trigger a localized browser download link.
-
+ 
+<img width="3609" height="1936" alt="nettracker-scan-results" src="https://github.com/user-attachments/assets/15bfa2cb-23bb-46c5-8b01-2e69b1439933" />
 ---
 
-## ⚖️ License
+## License
 Distributed under the **Apache License 2.0**. See the `LICENSE` file for more details. Compatible with the primary upstream project standards of the OWASP foundation.
