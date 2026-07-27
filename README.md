@@ -20,7 +20,7 @@ This repository solves those issues with a refined, single-command **Docker Comp
 
 ---
 
-## 🛠️ Installation & Deployment
+## Installation (See package/DEPLOY.md for package deployment)
 
 ### 1. Prerequisites
 Ensure you have Docker and Docker Compose installed on your Raspberry Pi:
@@ -40,8 +40,6 @@ sudo chmod -R 755 /home/hacker/Nettacker_Reports
 Create a file named `docker-compose.yml` and paste the configuration block below:
 
 ```yaml
-version: '3.8'
-
 services:
   nettacker:
     image: owasp/nettacker:local
@@ -50,14 +48,15 @@ services:
     tty: true
     stdin_open: true
     ports:
-      - "5001:5000"  # Access via https://localhost:5001
+      - "5001:5000"
     volumes:
-      - /home/hacker/Nettacker_Reports:/usr/src/owasp-nettacker/.data
+      - /home/<usr>/Nettacker_Reports:/usr/src/owasp-nettacker/.data  # replace <usr> with your userid with here
     command: [
       "--start-api", 
       "--api-host", "0.0.0.0", 
       "--api-access-log", "/usr/src/owasp-nettacker/.data/nettacker.log"
     ]
+
 ```
 
 Launch the stack using your terminal (or paste the code block directly into a **Dockhand** Stack Deployment panel):
@@ -86,8 +85,8 @@ https://<YOUR_RASPBERPY_PI_IP>:5001
 ---
 
 ## 📁 Accessing Your Scan Reports
-- **Real-Time Operational Log:** Access via your Pi at `/home/hacker/Nettacker_Reports/nettacker.log`.
-- **Relational Databases:** The scan records are stored locally inside the SQLite format engine at `/home/hacker/Nettacker_Reports/nettacker.db`.
+- **Real-Time Operational Log:** Access via your Pi at `/home/<usr>/Nettacker_Reports/nettacker.log`.
+- **Relational Databases:** The scan records are stored locally inside the SQLite format engine at `/home/<usr>/Nettacker_Reports/nettacker.db`.
 - **HTML Scan Files:** While running in Web API mode, files are generated dynamically upon demand. Use the **Results/Search** panel inside the browser GUI to view graphs or trigger a localized browser download link.
 
 ---
