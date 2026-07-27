@@ -75,11 +75,12 @@ sudo docker logs nettacker-api
 ```
 Look through the boot tracking text lines to find your `API Access Key`.
 
-<img width="2096" height="1619" alt="nettracker-API" src="https://github.com/user-attachments/assets/d0225f8a-8e0e-4097-8bc7-2738b32806b3" />
+<img width="2096" height="1619" alt="nettracker-API" src="https://github.com/user-attachments/assets/a6982492-a46d-4b36-be24-d81bb9e17d7a" />
 
 
 ### Step 2: Open the Web UI Dashboard
-<img width="3634" height="1823" alt="homepage-nettracker-UI" src="https://github.com/user-attachments/assets/6c21eedb-3709-4835-bbea-7ca44df3eeac" />
+
+<img width="3634" height="1823" alt="homepage-nettracker-UI" src="https://github.com/user-attachments/assets/88285d4a-4c58-4287-8e6d-f2f11258ac47" />
 
 **Open your web browser of choice on your local area network and navigate to:**
 
@@ -96,7 +97,8 @@ https://<YOUR_RASPBERPY_PI_IP>:5001
 - **Relational Databases:** The scan records are stored locally inside the SQLite format engine at `/home/<usr>/Nettacker_Reports/nettacker.db`.
 - **HTML Scan Files:** While running in Web API mode, files are generated dynamically upon demand. Use the **Results/Search** panel inside the browser GUI to view graphs or trigger a localized browser download link.
  
-<img width="3609" height="1936" alt="nettracker-scan-results" src="https://github.com/user-attachments/assets/15bfa2cb-23bb-46c5-8b01-2e69b1439933" />
+<img width="3609" height="1936" alt="nettracker-scan-results" src="https://github.com/user-attachments/assets/2692afbb-f053-40ac-aeb3-e036f9106833" />
+
 ---
 
 ## License
