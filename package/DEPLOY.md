@@ -18,13 +18,13 @@ Download the application package along with its signature file (`.sig`) and the 
 
 ```bash
 # Download the compressed tarball
-wget https://github.com
+wget https://github.com/deeprooter/nettacker-arm64/blob/main/package/nettacker_image.tar.gz
 
 # Download the detached signature file
-wget https://github.com.sig
+wget https://github.com/deeprooter/nettacker-arm64/blob/main/package/nettacker_image.tar.gz.sigstore.json
 
 # Download the developer's public key
-wget https://github.com
+wget https://github.com/deeprooter/nettacker-arm64/blob/main/package/cosign.pub
 ```
 
 ---
@@ -32,17 +32,11 @@ wget https://github.com
 ## Step 2: Verify the Signatures
 
 Before extracting, verify that the package has not been tampered with.
-
-1. **Import the public key:**
+**Verify the archive file:**
    ```bash
-   gpg --import public.key
+   cosign verify-blob --key cosign.pub --bundle nettacker_image.tar.gz.sigstore.json nettacker_image.tar.gz
    ```
-
-2. **Verify the archive file:**
-   ```bash
-   gpg --verify nettacker-arm64.tar.gz.sig nettacker-arm64.tar.gz
-   ```
-   *Look for a line saying `gpg: Good signature from...` to confirm authenticity.*
+   *If successful, the output will explicitly print `Verified OK`.*
 
 ---
 
@@ -50,15 +44,6 @@ Before extracting, verify that the package has not been tampered with.
 
 Decompress and extract the archive to access the deployment files.
 
-```bash
-# Decompress using gunzip (removes the .gz extension)
-gunzip nettacker-arm64.tar.gz
-
-# Extract the tar archive
-tar -xvf nettacker-arm64.tar
-```
-
-*Alternative (combine both steps into a single command without removing the original file):*
 ```bash
 tar -xzvf nettacker-arm64.tar.gz
 ```
