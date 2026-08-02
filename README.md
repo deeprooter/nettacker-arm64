@@ -32,8 +32,8 @@ sudo apt install docker.io docker-compose-v2 -y
 ### 2. Create the Local Reports Directory
 Set up the absolute file path on your local host to catch incoming logs and scan reports:
 ```bash
-mkdir -p /home/hacker/Nettacker_Reports
-sudo chmod -R 755 /home/hacker/Nettacker_Reports
+mkdir -p /home/<usr_name>/Nettacker_Reports
+sudo chmod -R 755 /home/<usr_name>/Nettacker_Reports
 ```
 
 ### 3. Deploy the Stack
